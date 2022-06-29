@@ -17,7 +17,7 @@ export const CardsContainer = () => {
                 <SimpleGrid maxW="80%" spacing='20px' marginTop="20px" marginBottom='50px' minChildWidth="200px" >
 
                     {
-                        movies.map( movie => <Card/>)
+                        movies.map( (movie, Index) => <Card currentMovie={movie} numElemento={Index}/>)
                     }
 
                 </SimpleGrid>

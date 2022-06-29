@@ -5,7 +5,7 @@ export const SearchBar = () => {
   return (
     <Center>
    
-        <Input bgColor="white" placeholder='Digita qualcosa...' w="200px" h='40px' />
+        <Input bgColor="white" placeholder='Digita qualcosa...' w="200px" h='40px' mr='10px'/>
 
         <Button color='black' _hover={{ bg: "#309953" }} bgColor='#50C878' >Cerca</Button>
         

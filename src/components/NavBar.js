@@ -82,7 +82,12 @@ export const NavBar = () => {
 
                                 <SearchBar />
 
-                                <Box>ciao   </Box>
+                                <Box>ciao   
+
+
+
+                                    asdasdìì
+                                </Box>
 
 
                             </VStack>

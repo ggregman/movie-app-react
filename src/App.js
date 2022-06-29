@@ -4,13 +4,10 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 import { CardsContainer } from './components/CardsContainer';
 import { NavBar } from './components/NavBar';
 
-
 // shift+alt+o = elimina import che non servono
+// ctrl+ù = per commentare
 
 function App() {
-
-
-  // ctrl+ù = commentare
 
   return (
 
@@ -22,7 +19,6 @@ function App() {
         <CardsContainer />
 
       </Box>
-
 
     </ChakraProvider>
   )
