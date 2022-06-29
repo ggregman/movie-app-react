@@ -1,14 +1,15 @@
 import { Center, SimpleGrid } from "@chakra-ui/react";
-import { getMovies } from "../api/getMovies.js";
 import { Card } from "./Card/Card.js";
 
-export const CardsContainer = () => {
-  const movies = getMovies();
+export const CardsContainer = (props) => {
+  const { movies } = props;
 
   return (
     <>
       <Center m="20px" color="white">
-        Risultati (10)
+        {movies.length > 0
+          ? "Risultati (" + movies.length + ")"
+          : "Esegui una ricerca"}
       </Center>
       <Center>
         <SimpleGrid
