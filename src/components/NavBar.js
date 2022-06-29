@@ -72,13 +72,13 @@ export const NavBar = (props) => {
                 spacing={3}
                 rounded="sm"
                 shadow="sm"
+                
               >
                 <CloseButton
                   aria-label="Close menu"
                   onClick={mobileNav.onClose}
                 />
                   <SearchBar searchCallback={searchCallback} />
-                <Box>ciao asdasdìì</Box>
               </VStack>
             </Box>
           </HStack>

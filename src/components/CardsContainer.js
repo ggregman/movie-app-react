@@ -7,9 +7,7 @@ export const CardsContainer = (props) => {
   return (
     <>
       <Center m="20px" color="white">
-        {movies.length > 0
-          ? "Risultati (" + movies.length + ")"
-          : "Esegui una ricerca"}
+        {movies.length > 0 ? "Risultati (" + movies.length + ")" : "Esegui una ricerca"}
       </Center>
       <Center>
         <SimpleGrid

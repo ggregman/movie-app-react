@@ -7,5 +7,4 @@ export const getMovies = () => {
 export const filterMovies = (keywords) => {
     // Restituire un nuovo array con solo i movie all'interno di arrMovies che nel titolo hanno la keyword
 
-
 }
