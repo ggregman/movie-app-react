@@ -1,4 +1,4 @@
-import { Center, SimpleGrid } from "@chakra-ui/react";
+import { Center, SimpleGrid, Text } from "@chakra-ui/react";
 import { Card } from "./Card/Card.js";
 
 export const CardsContainer = (props) => {
@@ -17,9 +17,16 @@ export const CardsContainer = (props) => {
           marginBottom="50px"
           minChildWidth="200px"
         >
-          {movies.map((movie, index) => (
-            <Card currentMovie={movie} key={index} />
-          ))}
+          {
+            movies.length > 0 &&
+            movies.map((movie, index) => <Card currentMovie={movie} key={index} />)
+            }
+
+          {
+            movies.length === 0 &&
+            <Text color='white'>Nessun risultato trovato :c </Text>
+            }
+
         </SimpleGrid>
       </Center>
     </>

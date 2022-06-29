@@ -1,10 +1,15 @@
+import axios from "axios";
 import { arrMovies } from "../mocks/mockMovies"
 
 export const getMovies = () => {
     return arrMovies.Search;
 }
 
-export const filterMovies = (keywords) => {
-    // Restituire un nuovo array con solo i movie all'interno di arrMovies che nel titolo hanno la keyword
+export const searchMovies = async (keywords) => {
 
+    const response = await axios.get(
+        `https://www.omdbapi.com/?apikey=f6e1faa9&s=${keywords}`
+    );
+
+    return response.data.Response === "False" ? [] : response.data.Search; 
 }
