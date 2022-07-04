@@ -22,7 +22,7 @@ export const Card = (props) => {
           {currentMovie.Title}
         </Text>
 
-        <Text>{currentMovie.Year}</Text>
+        <Text>{currentMovie.Year} | {currentMovie.Type}</Text>
 
         <Box
           display="flex"

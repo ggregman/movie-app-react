@@ -3,18 +3,19 @@ import { useState } from "react";
 
 export const SearchBar = (props) => {
   const { searchCallback } = props;
-  const [ keyword, setKeyword ] = useState("");
+  const [keyword, setKeyword] = useState('');
+  const [status, setStatus] = useState('submitting');
 
   const inputHandler = (e) => {
-    const lowerCase = e.target.value.toLowerCase();
-    setKeyword(lowerCase);
+    setKeyword(e.target.value.toLowerCase());
+    setStatus("typing");
   };
 
   return (
     <Center>
       <Input
         bgColor="white"
-        placeholder="Digita qualcosa..."
+        placeholder="Type something..."
         w="200px"
         h="40px"
         mr="10px"
@@ -22,8 +23,9 @@ export const SearchBar = (props) => {
         onChange={inputHandler}
       />
 
-      <Button color="black" _hover={{ bg: "#309953" }} bgColor="#50C878" onClick={() => searchCallback(keyword)}>
-        Cerca
+      <Button disabled={status === 'submitting' || keyword.length === 0}
+        color="black" _hover={{ bg: "#309953" }} bgColor="#50C878" onClick={() => searchCallback(keyword)}>
+        Search
       </Button>
     </Center>
   );

@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react"
+import { Box, Image, Text } from "@chakra-ui/react"
 import { useState, useEffect } from "react";
 import { searchMovieDetails } from "../../api/getMovies";
 

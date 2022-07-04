@@ -1,11 +1,11 @@
-import {Box,CloseButton, Flex, HStack, VStack, IconButton, useColorModeValue, useDisclosure} from "@chakra-ui/react";
+import { Box, CloseButton, Flex, HStack, VStack, IconButton, useColorModeValue, useDisclosure, Select } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Heading, Icon } from "@chakra-ui/react";
 import { SearchBar } from "./SearchBar";
 
 export const NavBar = (props) => {
-  
+
   const { searchCallback } = props;
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
@@ -28,7 +28,7 @@ export const NavBar = (props) => {
             </Icon>
             MovieApp
           </Flex>
-
+          
           <HStack display="flex" alignItems="center" spacing={1}>
             <HStack
               spacing={1}
@@ -64,13 +64,13 @@ export const NavBar = (props) => {
                 spacing={3}
                 rounded="sm"
                 shadow="sm"
-                
+
               >
                 <CloseButton
                   aria-label="Close menu"
                   onClick={mobileNav.onClose}
                 />
-                  <SearchBar searchCallback={searchCallback} />
+                <SearchBar searchCallback={searchCallback} />
               </VStack>
             </Box>
           </HStack>
