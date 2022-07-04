@@ -1,19 +1,11 @@
-import {
-  Box,
-  CloseButton,
-  Flex,
-  HStack,
-  VStack,
-  IconButton,
-  useColorModeValue,
-  useDisclosure,
-} from "@chakra-ui/react";
+import {Box,CloseButton, Flex, HStack, VStack, IconButton, useColorModeValue, useDisclosure} from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Heading, Icon } from "@chakra-ui/react";
 import { SearchBar } from "./SearchBar";
 
 export const NavBar = (props) => {
+  
   const { searchCallback } = props;
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();

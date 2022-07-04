@@ -2,6 +2,7 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import { Modale } from "./Modale.js";
 
 export const Card = (props) => {
+
   const { currentMovie } = props;
 
   return (
@@ -29,7 +30,7 @@ export const Card = (props) => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Modale />
+          <Modale movieId={currentMovie.imdbID} currentMovie={currentMovie} />
         </Box>
       </Box>
     </Box>

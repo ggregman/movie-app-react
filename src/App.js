@@ -14,14 +14,13 @@ function App() {
 
   // Dichiaro movies com una variabile di stato usando la funzione useState()
   // useState (inizia con "use") è una funzione particolare di React che viene definita hooks
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState();
 
   const searchCallback = async (keywords) => {
     if (keywords === "") return;
     const movies = await searchMovies(keywords);
     setMovies(movies);
   }
-
 
   // Per aggiornare movies non posso usare istruzinoi di assegnazione es. movies = [.....]
   // Devo per forza usare la funzione apposita che viene restituita da useState() nel nostro caso setMovies
@@ -35,6 +34,6 @@ function App() {
       </Box>
     </ChakraProvider>
   );
-}
+} 
 
 export default App;

@@ -1,8 +1,10 @@
-import { useDisclosure, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react"
-import { CardDetails } from "./CardDetails"
+import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 
-export const Modale = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+import { CardDetails } from "./CardDetails";
+
+export const Modale = ({movieId, currentMovie}) => {
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <>
@@ -11,10 +13,10 @@ export const Modale = () => {
             <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader pt='30px' fontWeight="bold">Titolo Film</ModalHeader>
+                    <ModalHeader pt='30px' fontWeight="bold">{currentMovie.Title}</ModalHeader>
                     <ModalCloseButton color="red" />
                     <ModalBody>
-                        <CardDetails/>
+                        <CardDetails movieId={currentMovie.imdbID}/>
                     </ModalBody>
 
                 </ModalContent>

@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export const SearchBar = (props) => {
   const { searchCallback } = props;
-
   const [ keyword, setKeyword ] = useState("");
 
   const inputHandler = (e) => {

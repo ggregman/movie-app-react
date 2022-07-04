@@ -1,22 +1,28 @@
 import { Box, Text } from "@chakra-ui/react"
+import { useState, useEffect } from "react";
+import { searchMovieDetails } from "../../api/getMovies";
 
-export const CardDetails = () => {
+export const CardDetails = ({ movieId }) => {
 
+    const [movieDetails, setMovieDetails] = useState();
+
+    const onLoad = async () => {
+        const movie = await searchMovieDetails(movieId);
+        setMovieDetails(movie);
+    }
+
+    useEffect(() => { onLoad() }, [])
+    
     return (
-        <Box pb='25px'>
-            <Text><b>Plot:</b> Lorem ipsum lorem ipsum lorem
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum.</Text>
-            <Text><b>Year:</b> 2022</Text>
-            <Text><b>Genre:</b> Action, Adventure</Text>
-            <Text><b>Runtime:</b> 123 min</Text>
-            <Text><b>Director:</b> Lorem ipsum, Lorem Ipsum</Text>
-            <Text><b>Actors:</b> Lorem ipsum, Lorem Ipsum</Text>
-            <Text><b>imdbRating:</b> 6.1</Text>
-        </Box>
+        movieDetails ? (
+            <Box pb='25px'>
+                <Text><b>Plot:</b> {movieDetails.Plot}</Text>
+                <Text><b>Year:</b> {movieDetails.Year}</Text>
+                <Text><b>Genre:</b> {movieDetails.Genre}</Text>
+                <Text><b>Runtime:</b> {movieDetails.Runtime}</Text>
+                <Text><b>Director:</b> {movieDetails.Director}</Text>
+                <Text><b>Actors:</b> {movieDetails.Actors}</Text>
+                <Text><b>imdbRating:</b> {movieDetails.imdbRating}</Text>
+            </Box>) : null
     )
 }
