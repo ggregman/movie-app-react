@@ -19,7 +19,7 @@ export const SearchBar = (props) => {
 
   return (
     <Center alignItems='center'>
-      <Select onClick={(e) => changeContextType(e)} marginX='5px' size='md' w='150px'>
+      <Select focusBorderColor="#50C878" _focus='#50C878' onClick={(e) => changeContextType(e)} marginX='5px' size='md' w='150px'>
         <option value='movie'>Movie</option>
         <option value='series'>Tv Shows</option>
         <option value='game'>Game</option>
