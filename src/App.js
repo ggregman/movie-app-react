@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Box, Center, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import { useState } from "react";
 import { searchMovies } from "./api/getMovies";
 import { CardsContainer } from "./components/CardsContainer";
@@ -16,11 +16,9 @@ function App() {
   // useState (inizia con "use") è una funzione particolare di React che viene definita hooks
   const [movies, setMovies] = useState();
 
-  const [contextType, setContextType] = useState('movie');
-
-  const searchCallback = async (keywords) => {
+  const searchCallback = async (keywords, contextType) => {
     if (keywords === "") return;
-    const movies = await searchMovies(keywords);
+    const movies = await searchMovies(keywords, contextType);
     setMovies(movies);
   }
 
@@ -28,23 +26,13 @@ function App() {
   // Devo per forza usare la funzione apposita che viene restituita da useState() nel nostro caso setMovies
   // Dopo l'esecuzione di setMovies il valore all'interno della variabile di stato movies viene aggiornato
 
-  // const changeContextType = (e) => {
-  //   setContextType(e);
-  // }
-
   return (
     <ChakraProvider>
       <Box backgroundColor="black">
-        <NavBar searchCallback={searchCallback} />
-        <Center marginTop='7' color='white'>
-          {/* <HStack spacing='5'>
-            <Button onClick={()=>changeContextType('movie')} variant='ghost' _hover={{ bg: '#50C878' }}>Movies</Button>
-            <Button onClick={()=>changeContextType('series')} variant='ghost' _hover={{ bg: '#50C878' }}>Tv Shows</Button>
-            <Button onClick={()=>changeContextType('game')} variant='ghost' _hover={{ bg: '#50C878' }}>Games</Button>
-          </HStack> */}
-        </Center>
+        <NavBar searchCallback={searchCallback}  />
         <CardsContainer movies={movies} />
       </Box>
+      
     </ChakraProvider>
   );
 }

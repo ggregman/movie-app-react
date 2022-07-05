@@ -3,12 +3,14 @@ import { Box, CloseButton, Flex, HStack, VStack, IconButton, useColorModeValue, 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Heading, Icon } from "@chakra-ui/react";
 import { SearchBar } from "./SearchBar";
+import { useState } from "react";
 
 export const NavBar = (props) => {
 
   const { searchCallback } = props;
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+  
 
   return (
     <>
@@ -17,7 +19,7 @@ export const NavBar = (props) => {
           alignItems="center"
           justifyContent="space-between"
           mx="auto"
-          paddingX="100px"
+          paddingX="50px"
         >
           <Flex fontSize="xl">
             <Icon h="25px" w="25px" marginRight="5px">
@@ -28,7 +30,9 @@ export const NavBar = (props) => {
             </Icon>
             MovieApp
           </Flex>
-          
+
+
+
           <HStack display="flex" alignItems="center" spacing={1}>
             <HStack
               spacing={1}
@@ -36,6 +40,8 @@ export const NavBar = (props) => {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
+       
+
               <SearchBar searchCallback={searchCallback} />
             </HStack>
 

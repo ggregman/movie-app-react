@@ -13,4 +13,6 @@ code {
     monospace;
 }
 
-
+:root {
+   --chakra-colors-chakra-body-bg: black !important;
+}

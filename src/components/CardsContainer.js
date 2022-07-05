@@ -1,18 +1,20 @@
-import {  Center, SimpleGrid, Text } from "@chakra-ui/react";
+import { ArrowDownIcon } from "@chakra-ui/icons";
+import { Center, SimpleGrid, Text } from "@chakra-ui/react";
 import { Card } from "./Card/Card.js";
+import CustomCardContainer from "./CustomCard/CustomCardContainer";
 
 export const CardsContainer = (props) => {
-  
+
   const { movies } = props;
 
 
   return (
     <>
-  
-      <Center m="20px" color="white">
+
+      <Center mt='50px' color="white">
         {movies && movies.length > 0
-        ? "Risultati (" + movies.length + ")"
-        : "Search something 🔍"}
+          ? "Results (" + movies.length + ")"
+          : "Search something 🔍"}
       </Center>
       <Center>
         <SimpleGrid
@@ -25,15 +27,21 @@ export const CardsContainer = (props) => {
           {
             movies && movies.length > 0 &&
             movies.map((movie, index) => <Card currentMovie={movie} key={index} />)
-            }
+          }
 
           {
             movies && movies.length === 0 &&
-            <Text color='white'>Nessun risultato trovato 😔 </Text>
-            }
+            <Text color='white'>Sorry! No results found 😔 </Text>
+          }
 
         </SimpleGrid>
       </Center>
-    </>
-  );
+      {
+        movies && <>
+          <Center marginTop='50px'><ArrowDownIcon color='white' /></Center>
+         
+          <Center marginTop='250px'><CustomCardContainer /></Center></>
+      }</>
+      );
+
 };
