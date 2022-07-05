@@ -1,7 +1,7 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import CustomCardDetails from './CustomCardDetails'
 
-const CustomModale = () => {
+const CustomModale = ({title,year}) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -12,10 +12,10 @@ const CustomModale = () => {
             <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader pt='30px' fontWeight="bold">Title</ModalHeader>
+                    <ModalHeader pt='30px' fontWeight="bold">{title}</ModalHeader>
                     <ModalCloseButton color="red" />
                     <ModalBody>
-                        <CustomCardDetails/>
+                        <CustomCardDetails title={title} year={year}/>
                     </ModalBody>
                 </ModalContent>
             </Modal>

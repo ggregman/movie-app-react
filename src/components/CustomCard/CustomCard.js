@@ -1,8 +1,8 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, Flex } from "@chakra-ui/react";
 import  CustomModale  from "./CustomModale";
 
 
-const CustomCard = ({title, year}) => {
+const CustomCard = ({title, year, type}) => {
 
     return (
         <>
@@ -13,6 +13,7 @@ const CustomCard = ({title, year}) => {
                 borderStyle="solid"
                 borderRadius="10px"
                 maxW="250px"
+                minW='200'
                 bgColor="white"
                 overflow="hidden"
             >
@@ -22,7 +23,8 @@ const CustomCard = ({title, year}) => {
                         {title}
                     </Text>
 
-                    <Text>{year} | type</Text>
+                    <Text>{year}</Text>
+                    <Text>Type: {type}</Text>
 
                     <Box
                         display="flex"
@@ -30,7 +32,7 @@ const CustomCard = ({title, year}) => {
                         alignItems="center"
                         justifyContent="space-between"
                     >
-                        <CustomModale />
+                        <CustomModale year={year} title={title}/>
                     </Box>
                 </Box>
             </Box>

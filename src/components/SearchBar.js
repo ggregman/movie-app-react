@@ -1,4 +1,4 @@
-import { Button, Center, Input, Select } from "@chakra-ui/react";
+import { Button, Center, Flex, Input, Select } from "@chakra-ui/react";
 import { useState } from "react";
 
 export const SearchBar = (props) => {
@@ -18,8 +18,8 @@ export const SearchBar = (props) => {
   };
 
   return (
-    <Center alignItems='center'>
-      <Select focusBorderColor="#50C878" _focus='#50C878' onClick={(e) => changeContextType(e)} marginX='5px' size='md' w='150px'>
+    <Flex alignItem='center'>
+      <Select marginTop='-2' focusBorderColor="#50C878" _focus='#50C878' onClick={(e) => changeContextType(e)} marginX='5px' size='md' w='125px'>
         <option value='movie'>Movie</option>
         <option value='series'>Tv Shows</option>
         <option value='game'>Game</option>
@@ -30,15 +30,15 @@ export const SearchBar = (props) => {
         placeholder="Type something..."
         w="200px"
         h="40px"
-        mr="10px"
+        mr="5px"
         type='text'
         onChange={inputHandler}
       />
 
-      <Button disabled={status === 'submitting' || keyword.length === 0}
+      <Button w='auto' disabled={status === 'submitting' || keyword.length === 0}
         color="black" _hover={{ bg: "#309953" }} bgColor="#50C878" onClick={() => searchCallback(keyword, contextType)}>
         Search
       </Button>
-    </Center>
+    </Flex>
   );
 };

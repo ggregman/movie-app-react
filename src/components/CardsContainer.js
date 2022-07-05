@@ -1,5 +1,5 @@
 import { ArrowDownIcon } from "@chakra-ui/icons";
-import { Center, SimpleGrid, Text } from "@chakra-ui/react";
+import { Center, VStack, SimpleGrid, Text } from "@chakra-ui/react";
 import { Card } from "./Card/Card.js";
 import CustomCardContainer from "./CustomCard/CustomCardContainer";
 
@@ -30,18 +30,20 @@ export const CardsContainer = (props) => {
           }
 
           {
-            movies && movies.length === 0 &&
+            movies && movies.length === 0 && <>
+            <VStack>
             <Text color='white'>Sorry! No results found 😔 </Text>
+            <Text color='white'>Try again or</Text>
+            
+            
+          <Center marginTop='50px'><ArrowDownIcon color='white' /></Center>
+         
+          <Center marginTop='250px'><CustomCardContainer /></Center></VStack></>
           }
 
         </SimpleGrid>
       </Center>
-      {
-        movies && <>
-          <Center marginTop='50px'><ArrowDownIcon color='white' /></Center>
-         
-          <Center marginTop='250px'><CustomCardContainer /></Center></>
-      }</>
+      </>
       );
 
 };
